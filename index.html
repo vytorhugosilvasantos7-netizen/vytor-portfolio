@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vytor Santos | Portfolio Interactive</title>
+    
+    <!-- Ícones DevIcon (Logos Oficiais) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    
+    <!-- Seu CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black">
+
+    <!-- 1. Cabeçalho Animado -->
+    <header class="header-animated">
+        <h1 class="glitch-text">&lt;Vytor.Santos /&gt;</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#habilidades">Linguagens</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. Hero Section com Terminal e Botão de CV -->
+    <section id="inicio" class="hero-section">
+        <div class="cv-container">
+            <button class="btn-download" onclick="baixarCurriculo()">Baixar Currículo</button>
+        </div>
+
+        <div class="terminal-container floating-element">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">bash - vytor@portfolio:~</span>
+            </div>
+            <div class="terminal-body">
+                <p class="code-line"><span class="purple">const</span> <span class="blue">developer</span> = <span class="yellow">{</span></p>
+                <p class="code-line indent"><span class="red">name</span>: <span class="green">'Vytor Santos'</span>,</p>
+                <p class="code-line indent"><span class="red">role</span>: <span class="green">'Estudante de Ciência da Computação'</span>,</p>
+                <p class="code-line indent"><span class="red">focus</span>: <span class="green">'Backend, Python & Banco de Dados'</span></p>
+                <p class="code-line"><span class="yellow">}</span>;</p>
+                <p class="code-prompt">&gt; System initialized successfully...<span class="cursor">_</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Sobre Mim -->
+    <section id="sobre" class="reveal-section">
+        <h2 class="section-title"><span>01.</span> Sobre Mim</h2>
+        <div class="sobre-box">
+            <p>
+                Sou estudante de <strong>Ciência da Computação</strong>, focado em lógica backend, arquitetura de sistemas e automações. 
+                Estou sempre buscando entender o que acontece por trás dos panos, desenvolvendo códigos limpos, seguros e com banco de dados estruturado.
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. LINGUAGENS & TECNOLOGIAS -->
+    <section id="habilidades" class="reveal-section">
+        <h2 class="section-title"><span>02.</span> Tech Stack & Ícones</h2>
+        
+        <div class="tech-grid">
+            <div class="tech-card">
+                <i class="devicon-python-plain colored tech-icon"></i>
+                <h3>Python</h3>
+                <span class="tech-level">Backend & Automação</span>
+            </div>
+            <div class="tech-card">
+                <i class="devicon-html5-plain colored tech-icon"></i>
+                <h3>HTML5</h3>
+                <span class="tech-level">Estrutura Web</span>
+            </div>
+            <div class="tech-card">
+                <i class="devicon-sqlite-plain colored tech-icon"></i>
+                <h3>SQLite</h3>
+                <span class="tech-level">Banco de Dados Relacional</span>
+            </div>
+            <div class="tech-card">
+                <i class="devicon-git-plain colored tech-icon"></i>
+                <h3>Git / GitHub</h3>
+                <span class="tech-level">Versionamento</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Projetos -->
+    <section id="projetos" class="reveal-section">
+        <h2 class="section-title"><span>03.</span> Projetos</h2>
+        
+        <div class="projects-grid">
+            <!-- Projeto 1: Concluído -->
+            <div class="project-card glow-on-hover">
+                <div class="project-header">
+                    <i class="devicon-python-plain colored"></i>
+                    <h3>🛡️ Organizador de gastos</h3>
+                </div>
+                <p>
+                    Aplicação backend completa com criptografia de senhas (Hash SHA-256), isolamento de dados por usuário e persistência SQLite.
+                </p>
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>SQLite</span>
+                    <span>Security / Hash</span>
+                </div>
+                <a href="https://github.com" target="_blank" class="btn-action">Ver no GitHub &rarr;</a>
+            </div>
+
+            <!-- Projeto 2: Comparador de Investimentos Seguros -->
+            <div class="project-card project-building">
+                <div class="project-header">
+                    <i class="devicon-python-plain colored"></i>
+                    <h3>📈 Comparador de Investimentos & Renda Fixa</h3>
+                </div>
+                <p>
+                    Algoritmo em Python que analisa e ranqueia as melhores taxas de rendimento (CDB/LCI/LCA) com cálculo de IR regressivo e validação de segurança FGC.
+                </p>
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>Lógica Financeira</span>
+                    <span>Análise de Dados</span>
+                </div>
+                <span class="status-badge">&UpperRightArrow; Em Desenvolvimento...</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Contato e Links -->
+    <footer id="contato" class="reveal-section">
+        <h2 class="section-title"><span>04.</span> Conectar</h2>
+        <div class="contact-box">
+            <p class="contact-text">Bora construir algo juntos ou conversar sobre oportunidades de estágio?</p>
+            <div class="social-icons">
+                <a href="https://github.com" target="_blank" class="icon-link"><i class="devicon-github-original"></i> GitHub</a>
+                <a href="https://linkedin.com" target="_blank" class="icon-link"><i class="devicon-linkedin-plain colored"></i> LinkedIn</a>
+            </div>
+        </div>
+        <p class="credits">&copy; 2026 Vytor Santos. Powered by Code & Animation.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
