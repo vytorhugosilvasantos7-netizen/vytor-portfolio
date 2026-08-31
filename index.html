@@ -3,146 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vytor Santos | Portfolio Interactive</title>
-    
-    <!-- Ícones DevIcon (Logos Oficiais) -->
+    <title>Vytor Santos — Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    
-    <!-- Seu CSS Customizado -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-black">
+<body>
 
-    <!-- 1. Cabeçalho Animado -->
-    <header class="header-animated">
-        <h1 class="glitch-text">&lt;Vytor.Santos /&gt;</h1>
-        <nav>
+    <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+    <div class="crt-overlay" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+    <div class="orb orb-a" aria-hidden="true"></div>
+    <div class="orb orb-b" aria-hidden="true"></div>
+
+    <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+    <div class="trace-line" id="traceLine" aria-hidden="true">
+        <div class="trace-fill" id="traceFill"></div>
+        <div class="trace-node" id="traceNode"></div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <a href="#inicio" class="logo">
+            <span class="logo-bracket">&lt;</span>Vytor<span class="dim">.</span>Santos<span class="logo-bracket"> /&gt;</span>
+        </a>
+
+        <nav class="nav" id="nav">
             <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#habilidades">Linguagens</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#inicio" data-index="00">Início</a></li>
+                <li><a href="#sobre" data-index="01">Sobre</a></li>
+                <li><a href="#habilidades" data-index="02">Stack</a></li>
+                <li><a href="#projetos" data-index="03">Projetos</a></li>
+                <li><a href="#contato" data-index="04">Contato</a></li>
             </ul>
         </nav>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </header>
 
-    <!-- 2. Hero Section com Terminal e Botão de CV -->
-    <section id="inicio" class="hero-section">
-        <div class="cv-container">
-            <button class="btn-download" onclick="baixarCurriculo()">Baixar Currículo</button>
-        </div>
+    <main>
+        <!-- HERO -->
+        <section id="inicio" class="hero">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="status-dot"></span>disponível para estágio</p>
+                    <h1 class="hero-title">
+                        Eu construo o que roda<br>
+                        <span class="hero-title-accent">por trás da tela.</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Estudante de Ciência da Computação focado em lógica de backend,
+                        arquitetura de sistemas e banco de dados. Gosto de entender o motor,
+                        não só o painel.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="baixarCurriculo()">
+                            <span>Baixar Currículo</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v10m0 0L4 7m4 4l4-4M2 14h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <a href="#projetos" class="btn btn-ghost">Ver projetos</a>
+                    </div>
+                </div>
 
-        <div class="terminal-container floating-element">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-                <span class="terminal-title">bash - vytor@portfolio:~</span>
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="terminal-title">bash — vytor@portfolio:~</span>
+                    </div>
+                    <div class="terminal-body" id="terminalBody">
+                        <p class="code-line"><span class="prompt">$</span> whoami</p>
+                    </div>
+                </div>
             </div>
-            <div class="terminal-body">
-                <p class="code-line"><span class="purple">const</span> <span class="blue">developer</span> = <span class="yellow">{</span></p>
-                <p class="code-line indent"><span class="red">name</span>: <span class="green">'Vytor Santos'</span>,</p>
-                <p class="code-line indent"><span class="red">role</span>: <span class="green">'Estudante de Ciência da Computação'</span>,</p>
-                <p class="code-line indent"><span class="red">focus</span>: <span class="green">'Backend, Python & Banco de Dados'</span></p>
-                <p class="code-line"><span class="yellow">}</span>;</p>
-                <p class="code-prompt">&gt; System initialized successfully...<span class="cursor">_</span></p>
-            </div>
-        </div>
-    </section>
 
-    <!-- 3. Sobre Mim -->
-    <section id="sobre" class="reveal-section">
-        <h2 class="section-title"><span>01.</span> Sobre Mim</h2>
-        <div class="sobre-box">
-            <p>
-                Sou estudante de <strong>Ciência da Computação</strong>, focado em lógica backend, arquitetura de sistemas e automações. 
-                Estou sempre buscando entender o que acontece por trás dos panos, desenvolvendo códigos limpos, seguros e com banco de dados estruturado.
+            <a href="#sobre" class="scroll-cue" aria-label="Rolar para baixo">
+                <span>scroll</span>
+                <svg width="12" height="18" viewBox="0 0 12 18" fill="none"><path d="M1 1l5 5 5-5M6 1v15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </section>
+
+        <!-- SOBRE -->
+        <section id="sobre" class="section reveal">
+            <h2 class="section-title" data-num="01">Sobre mim</h2>
+
+            <div class="about-grid">
+                <p class="about-text">
+                    Sou estudante de <strong>Ciência da Computação</strong>, com foco em lógica de
+                    backend, arquitetura de sistemas e automações. Estou sempre buscando entender
+                    o que acontece por trás dos panos — desenvolvendo código limpo, seguro e com
+                    banco de dados bem estruturado. Prefiro resolver o problema uma camada abaixo
+                    da interface.
+                </p>
+                <dl class="about-stats">
+                    <div class="stat">
+                        <dt>foco</dt>
+                        <dd>Backend & Dados</dd>
+                    </div>
+                    <div class="stat">
+                        <dt>formação</dt>
+                        <dd>Ciência da Computação</dd>
+                    </div>
+                    <div class="stat">
+                        <dt>linguagem</dt>
+                        <dd>Python</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- STACK -->
+        <section id="habilidades" class="section reveal">
+            <h2 class="section-title" data-num="02">Tech stack</h2>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <i class="devicon-python-plain colored tech-icon"></i>
+                    <h3>Python</h3>
+                    <span class="tech-level">Backend & automação</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-html5-plain colored tech-icon"></i>
+                    <h3>HTML5</h3>
+                    <span class="tech-level">Estrutura web</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-sqlite-plain colored tech-icon"></i>
+                    <h3>SQLite</h3>
+                    <span class="tech-level">Banco de dados relacional</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-git-plain colored tech-icon"></i>
+                    <h3>Git / GitHub</h3>
+                    <span class="tech-level">Versionamento</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETOS -->
+        <section id="projetos" class="section reveal">
+            <h2 class="section-title" data-num="03">Projetos</h2>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-status status-done">concluído</div>
+                    <div class="project-header">
+                        <i class="devicon-python-plain colored"></i>
+                        <h3>Organizador de gastos</h3>
+                    </div>
+                    <p>
+                        Aplicação backend completa com criptografia de senhas (hash SHA-256),
+                        isolamento de dados por usuário e persistência em SQLite.
+                    </p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>SQLite</span>
+                        <span>Security / Hash</span>
+                    </div>
+                    <a href="https://github.com" target="_blank" rel="noopener" class="project-link">
+                        Ver no GitHub
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-status status-progress">em desenvolvimento</div>
+                    <div class="project-header">
+                        <i class="devicon-python-plain colored"></i>
+                        <h3>Comparador de investimentos & renda fixa</h3>
+                    </div>
+                    <p>
+                        Algoritmo em Python que analisa e ranqueia as melhores taxas de rendimento
+                        (CDB/LCI/LCA), com cálculo de IR regressivo e validação de cobertura FGC.
+                    </p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Lógica financeira</span>
+                        <span>Análise de dados</span>
+                    </div>
+                    <span class="project-link project-link-disabled">
+                        Em breve
+                    </span>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <footer id="contato" class="section reveal contact">
+            <h2 class="section-title" data-num="04">Conectar</h2>
+            <p class="contact-text">
+                Bora construir algo juntos ou conversar sobre oportunidades de estágio?
             </p>
-        </div>
-    </section>
 
-    <!-- 4. LINGUAGENS & TECNOLOGIAS -->
-    <section id="habilidades" class="reveal-section">
-        <h2 class="section-title"><span>02.</span> Tech Stack & Ícones</h2>
-        
-        <div class="tech-grid">
-            <div class="tech-card">
-                <i class="devicon-python-plain colored tech-icon"></i>
-                <h3>Python</h3>
-                <span class="tech-level">Backend & Automação</span>
-            </div>
-            <div class="tech-card">
-                <i class="devicon-html5-plain colored tech-icon"></i>
-                <h3>HTML5</h3>
-                <span class="tech-level">Estrutura Web</span>
-            </div>
-            <div class="tech-card">
-                <i class="devicon-sqlite-plain colored tech-icon"></i>
-                <h3>SQLite</h3>
-                <span class="tech-level">Banco de Dados Relacional</span>
-            </div>
-            <div class="tech-card">
-                <i class="devicon-git-plain colored tech-icon"></i>
-                <h3>Git / GitHub</h3>
-                <span class="tech-level">Versionamento</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Projetos -->
-    <section id="projetos" class="reveal-section">
-        <h2 class="section-title"><span>03.</span> Projetos</h2>
-        
-        <div class="projects-grid">
-            <!-- Projeto 1: Concluído -->
-            <div class="project-card glow-on-hover">
-                <div class="project-header">
-                    <i class="devicon-python-plain colored"></i>
-                    <h3>🛡️ Organizador de gastos</h3>
-                </div>
-                <p>
-                    Aplicação backend completa com criptografia de senhas (Hash SHA-256), isolamento de dados por usuário e persistência SQLite.
-                </p>
-                <div class="project-tags">
-                    <span>Python</span>
-                    <span>SQLite</span>
-                    <span>Security / Hash</span>
-                </div>
-                <a href="https://github.com" target="_blank" class="btn-action">Ver no GitHub &rarr;</a>
-            </div>
-
-            <!-- Projeto 2: Comparador de Investimentos Seguros -->
-            <div class="project-card project-building">
-                <div class="project-header">
-                    <i class="devicon-python-plain colored"></i>
-                    <h3>📈 Comparador de Investimentos & Renda Fixa</h3>
-                </div>
-                <p>
-                    Algoritmo em Python que analisa e ranqueia as melhores taxas de rendimento (CDB/LCI/LCA) com cálculo de IR regressivo e validação de segurança FGC.
-                </p>
-                <div class="project-tags">
-                    <span>Python</span>
-                    <span>Lógica Financeira</span>
-                    <span>Análise de Dados</span>
-                </div>
-                <span class="status-badge">&UpperRightArrow; Em Desenvolvimento...</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. Contato e Links -->
-    <footer id="contato" class="reveal-section">
-        <h2 class="section-title"><span>04.</span> Conectar</h2>
-        <div class="contact-box">
-            <p class="contact-text">Bora construir algo juntos ou conversar sobre oportunidades de estágio?</p>
             <div class="social-icons">
-                <a href="https://github.com" target="_blank" class="icon-link"><i class="devicon-github-original"></i> GitHub</a>
-                <a href="https://linkedin.com" target="_blank" class="icon-link"><i class="devicon-linkedin-plain colored"></i> LinkedIn</a>
+                <a href="https://github.com" target="_blank" rel="noopener" class="icon-link">
+                    <i class="devicon-github-original"></i> GitHub
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" class="icon-link">
+                    <i class="devicon-linkedin-plain colored"></i> LinkedIn
+                </a>
             </div>
-        </div>
-        <p class="credits">&copy; 2026 Vytor Santos. Powered by Code & Animation.</p>
-    </footer>
+
+            <p class="credits">&copy; 2026 Vytor Santos — feito à mão, linha por linha.</p>
+        </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
